@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+
+<suite name="Test with firefox" verbose="1" parallel="false">
+    <test name="test firefox">
+        <parameter name="brower" value="firefox" />
+        <parameter name="devide" value="" />
+
+        <classes>
+            <class name="tesst.LoginTest">
+                <methods>
+                    <include name="testLoginSuccess" />
+                </methods>
+            </class>
+        </classes>
+            
+        
+    </test>
+</suite>

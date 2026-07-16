@@ -7,6 +7,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import utils.ConfigReader;
+import utils.ScreenshotUtil;
 
 public class LoginPage extends BasePage {
     //   <input data-v-1f99f73c=
@@ -25,6 +26,7 @@ public class LoginPage extends BasePage {
             String url = ConfigReader.get("login.base.url");
             driver.get(url);
             wait.until(ExpectedConditions.visibilityOfElementLocated(USERNAME_INPUT));
+            ScreenshotUtil.takeScreenshot(driver, "login_page");
         });
     }
 
@@ -33,6 +35,7 @@ public class LoginPage extends BasePage {
             WebElement usernameInput = driver.findElement(USERNAME_INPUT);
             highlight(usernameInput);
             usernameInput.sendKeys(username);
+            ScreenshotUtil.takeScreenshot(driver, "enter_username");
             Thread.sleep(2000);
             unhighlight(usernameInput);
         });
@@ -43,6 +46,7 @@ public class LoginPage extends BasePage {
             WebElement passwordInput = driver.findElement(PASSWORD_INPUT);
             highlight(passwordInput);
             passwordInput.sendKeys(password);
+            ScreenshotUtil.takeScreenshot(driver, "enter_password");
             Thread.sleep(2000);
             unhighlight(passwordInput);
         });
@@ -52,7 +56,11 @@ public class LoginPage extends BasePage {
         Allure.step("Click login button", () -> {
             WebElement loginButton = driver.findElement(LOGIN_BUTTON);
             highlight(loginButton);
+
+            ScreenshotUtil.takeScreenshot(driver, "click_login_button");
+            Thread.sleep(1000);
             loginButton.click();
+
             Thread.sleep(1000);
             unhighlight(loginButton);
         });
