@@ -3,15 +3,9 @@ on:
   push:
     branches:
       - main
-    paths:
-      - "src/**"
-      - "pom.xml"
-      - "testng.xml"
-      - ".github/workflows/selenium-pom-ci.yml"
   pull_request:
     branches:
       - main
-
 
 jobs:
   selenium-tests:
