@@ -64,6 +64,9 @@
                         <suiteXmlFiles>
                             <suiteXmlFile>${suiteXmlfile}</suiteXmlFile>
                         </suiteXmlFiles>
+                        <systemPropertyVariables>
+                            <isheadless>${headless}</isheadless>
+                        </systemPropertyVariables>
                     </configuration>
             </plugin>
  <!--       mvn allure:report

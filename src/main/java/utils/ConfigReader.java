@@ -23,14 +23,26 @@ public class ConfigReader {
             return properties;
         }
 
-        public static String get(String key) {
+    public static String get(String key) {
+        String systemValue = System.getProperty(key);
+        if (systemValue != null) {
+            return systemValue.trim();
+        }
         String value = PROPERTIES.getProperty(key);
-
-        if  (value == null) {
+        if (value == null) {
             throw new RuntimeException("Key not found" + key);
         }
         return value.trim();
-        }
+    }
+
+//        public static String get(String key) {
+//        String value = PROPERTIES.getProperty(key);
+//
+//        if  (value == null) {
+//            throw new RuntimeException("Key not found" + key);
+//        }
+//        return value.trim();
+//        }
 
         public static int getInt(String key) {
         return Integer.parseInt(get(key));
