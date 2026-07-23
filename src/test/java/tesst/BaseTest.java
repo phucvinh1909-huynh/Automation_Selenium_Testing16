@@ -55,21 +55,7 @@ public class BaseTest {
 
         WebDriverManager.chromedriver().setup();
         ChromeOptions options = new ChromeOptions();
-
-        boolean isCI = System.getenv("CI") != null;
-
-        if (isCI) {
-
-            options.addArguments("--headless=new");
-            options.addArguments("--window-size=1920,1080");
-            options.addArguments("--no-sandbox");
-            options.addArguments("--disable-dev-shm-usage");
-        } else {
-
-            options.addArguments("--start-maximized");
-        }
-
-//        options.addArguments("--start-maximized");
+        options.addArguments("--start-maximized");
 
 //        WebDriver driver = new ChromeDriver(options);
 //        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(30));
