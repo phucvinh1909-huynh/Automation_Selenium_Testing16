@@ -55,7 +55,7 @@ public class DriverFactory {
                 if (deviceName != null && !deviceName.isEmpty()) {
                     Map<String, String> mobileEmulation = new HashMap<>();
                     mobileEmulation.put("deviceName", deviceName.trim());
-
+//              chay duoc chua vay
                     chromeOptions.setExperimentalOption("mobileEmulation", mobileEmulation);
                 }
                 return new ChromeDriver(chromeOptions);
