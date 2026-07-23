@@ -1,4 +1,4 @@
-package tesst;
+package test;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.JavascriptExecutor;
@@ -35,9 +35,9 @@ public class BaseTest {
         return waitThreadLocal.get();
     }
 
-    @Parameters({"brower", "device"})
+    @Parameters({"browser", "device"})
     @BeforeMethod(alwaysRun = true)
-    public void setUp(@Optional("brower") String brower, @Optional("") String device, Method method) throws IOException {
+    public void setUp(@Optional("browser") String browser, @Optional("") String device, Method method) throws IOException {
 //      TODO: tao folder screenshot, video record
 
         String className = method.getDeclaringClass().getSimpleName();
@@ -46,7 +46,7 @@ public class BaseTest {
 
         String timestamp = LocalDateTime.now().format(DateTimeFormatter.ofPattern("yyyyMMdd_HHmmss"));
 
-        String folderName = String.format("%s_%s_%s_%s_%s", className, methodName, timestamp, brower, device);
+        String folderName = String.format("%s_%s_%s_%s_%s", className, methodName, timestamp, browser, device);
 
         String testFolderPath = "target/test-output/" + folderName;
         Files.createDirectories(Paths.get(testFolderPath));
@@ -59,8 +59,8 @@ public class BaseTest {
 
 //        WebDriver driver = new ChromeDriver(options);
 //        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(30));
-        WebDriver driver = DriverFactory.createDriver(brower, device);
-        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(2000));
+        WebDriver driver = DriverFactory.createDriver(browser, device);
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10000));
 
         driverThreadLocal.set(driver);
         waitThreadLocal.set(wait);
