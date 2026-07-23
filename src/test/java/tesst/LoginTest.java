@@ -47,7 +47,7 @@ public class LoginTest extends BaseTest{
 
     @DataProvider(name= "Login Data")
     public Object[][] loginDataProvider()throws IOException {
-        String filePath = "src/test/resources/loginData.csv";
+        String filePath = getClass().getClassLoader().getResource("loginData.csv").getPath();
 
         List<String[]> data = CsvReader.readCsvFile(filePath);
 
