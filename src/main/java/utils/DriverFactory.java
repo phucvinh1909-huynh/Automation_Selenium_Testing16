@@ -48,6 +48,8 @@ public class DriverFactory {
                             "--window-size=1920,1080",
                             "--disable-dev-shm-usage"
                     );
+                } else {
+                    chromeOptions.addArguments("--start-maximized");
                 }
 
                 if (deviceName != null && !deviceName.isEmpty()) {
@@ -55,8 +57,6 @@ public class DriverFactory {
                     mobileEmulation.put("deviceName", deviceName.trim());
 
                     chromeOptions.setExperimentalOption("mobileEmulation", mobileEmulation);
-                } else if(!isheadless) {
-                    chromeOptions.addArguments("--start-maximized");
                 }
                 return new ChromeDriver(chromeOptions);
     }
