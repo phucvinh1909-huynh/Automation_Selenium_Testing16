@@ -26,3 +26,20 @@ jobs:
 
       - name: Run Selenium Tests
         run: mvn -B test -Dheadless=true -Djava.awt.headless=true
+
+      - name: Generate Allure Report
+        run: echo "Not yet implemented"
+
+      - name: Upload Allure Report
+        run: echo "Not yet implemented"
+
+      - name: Send Report to Slack
+        if: always()
+        uses: slackapi/slack-github-action@v2.0.0
+        with:
+          webhook: ${{secrets.SLACK WEBHOOK URL}}
+          webhook-type: incoming-webhook
+          payload: |
+            {
+              "text": "Done"
+            }
