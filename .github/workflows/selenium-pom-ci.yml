@@ -7,6 +7,10 @@ on:
     branches:
       - main
 
+defaults:
+  run:
+    working-directory: Automation_Selenium_Testing16-pom
+
 jobs:
   selenium-tests:
     runs-on: ubuntu-latest
@@ -28,10 +32,16 @@ jobs:
         run: mvn -B test -Dheadless=true -Djava.awt.headless=true
 
       - name: Generate Allure Report
-        run: echo "Not yet implemented"
+        if: always()
+        run: mvn allure:report
 
       - name: Upload Allure Report
-        run: echo "Not yet implemented"
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: allure-report
+          path: Automation_Selenium_Testing16-pom/target/site/allure-maven-plugin
+          retention-days: 7
 
       - name: Send Report to Slack
         if: always()
