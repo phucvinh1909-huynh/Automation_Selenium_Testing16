@@ -61,7 +61,7 @@ jobs:
           echo "failed=$FAILED" >> $GITHUB_OUTPUT
           {
             echo "message<<MSG_EOF"
-            echo "Result: ${{ job.status }}
+            echo "Result: ${{ job.status }}"
             echo "Total: $TOTAL | Passed: $PASSED | Failed: $FAILED"
             echo "Detail: ${{ github.server_url }}/${{ github.respository }}/actions/runs/${{ github.run_id }}"
             echo "MSG_EOF"
