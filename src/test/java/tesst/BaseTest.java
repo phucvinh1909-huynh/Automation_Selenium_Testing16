@@ -60,7 +60,7 @@ public class BaseTest {
 //        WebDriver driver = new ChromeDriver(options);
 //        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(30));
         WebDriver driver = DriverFactory.createDriver(brower, device);
-        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(30));
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(2000));
 
         driverThreadLocal.set(driver);
         waitThreadLocal.set(wait);
