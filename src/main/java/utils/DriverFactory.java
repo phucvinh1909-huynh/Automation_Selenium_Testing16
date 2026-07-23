@@ -17,6 +17,9 @@ public class DriverFactory {
         if (browser == null || browser.isEmpty()) {
             browser = "chrome";
         }
+
+    boolean isHeadless = ConfigReader.getBoolean("headless");
+
     switch (browser) {
             case "firefox":
                 WebDriverManager.firefoxdriver().setup();
