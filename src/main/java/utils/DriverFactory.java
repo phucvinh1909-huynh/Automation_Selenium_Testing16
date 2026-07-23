@@ -18,7 +18,7 @@ public class DriverFactory {
             browser = "chrome";
         }
 
-    boolean isHeadless = ConfigReader.getBoolean("headless");
+    boolean isheadless = ConfigReader.getBoolean("headless");
 
     switch (browser) {
             case "firefox":
@@ -40,7 +40,7 @@ public class DriverFactory {
 
                 ChromeOptions chromeOptions = new ChromeOptions();
 
-                if (isHeadless) {
+                if (isheadless) {
                     chromeOptions.addArguments(
                             "--headless=new",
                             "--disable-gpu",
