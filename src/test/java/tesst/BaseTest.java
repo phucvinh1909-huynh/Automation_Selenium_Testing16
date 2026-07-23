@@ -53,9 +53,9 @@ public class BaseTest {
 
         ScreenshotUtil.setTestFolder(testFolderPath);
 
-        WebDriverManager.chromedriver().setup();
-        ChromeOptions options = new ChromeOptions();
-        options.addArguments("--start-maximized");
+//        WebDriverManager.chromedriver().setup();
+//        ChromeOptions options = new ChromeOptions();
+//        options.addArguments("--start-maximized");
 
 //        WebDriver driver = new ChromeDriver(options);
 //        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(30));
