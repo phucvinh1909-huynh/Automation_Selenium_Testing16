@@ -7,9 +7,6 @@ on:
     branches:
       - main
 
-defaults:
-  run:
-    working-directory: Automation_Selenium_Testing16-pom
 
 jobs:
   selenium-tests:
@@ -40,7 +37,7 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: allure-report
-          path: Automation_Selenium_Testing16-pom/target/site/allure-maven-plugin
+          path: target/site/allure-maven-plugin
           retention-days: 7
 
       - name: Send Report to Slack
